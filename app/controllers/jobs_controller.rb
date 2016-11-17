@@ -1,6 +1,6 @@
 class JobsController < ApplicationController
   def show
-    @jobs = Job.find(params[:id])
+    @job = Job.find(params[:id])
   end
   
   def new
@@ -9,7 +9,7 @@ class JobsController < ApplicationController
   
   def create
     @job = Job.create(params.require(:job)
-              .permit(:title, :location, :category, :company, :description))
+              .permit(:title, :location, :category, :company, :description, :featured))
     redirect_to @job 
   end
 end
